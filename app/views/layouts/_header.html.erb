@@ -1,14 +1,29 @@
 <header>
-    <div class="l-header">
-        <i class="fas fa-dumbbell fa-3x"></i>
-        <h1>レンタルマッチョ</h1>
-    </div>
-    <ul class="r-header">
-    <li><%= link_to "about", about_path %></li>
-    <li><a href="#">マッチョ一覧</a></li>
-    <li><%= link_to "新規登録", signup_path %></li>
-    <li><a href="#">ログイン</a></li>
-    <li><a href="#">ゲストログイン</a></li>
-    <li><a href="#">管理ユーザ簡単ログイン</a></li>
-    </ul>
+  <div class="container">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top navbar-extend">
+  
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+      #<#div class="l-header">
+      #    <i class="fas fa-dumbbell fa-3x"></i>
+      #    <h1>レンタルマッチョ</h1>
+      #</#div>
+      <div id="menu" class="collapse navbar-collapse">
+      <ul class="navbar-nav navbar-nav-extend ml-auto">
+      <% if logged_in? %>
+      <li class="nav-item nav-item-extend"><%= link_to "about", about_path, class: "btn btn-info btn-md btn-extend" %></li>
+      <li class="nav-item nav-item-extend"><%= link_to "プロフィール", current_user, class: "btn btn-secondary btn-md btn-extend" %></li>
+      <li><a href="#">マッチョ一覧</a></li>
+      <li class="nav-item nav-item-extend"><%= link_to "ログアウト", '#', method: :delete, class: "btn btn-danger btn-md btn-extend btn-logout-extend" %></li>
+      <% else %>
+      <li class="nav-item nav-item-extend"><%= link_to "新規登録", signup_path, class: "btn btn-info btn-md btn-extend" %></li>
+      <li class="nav-item nav-item-extend"><%= link_to "ログイン", login_path, class: "btn btn-info btn-md btn-extend btn-login-extend" %></li>
+      <li><a href="#">ゲストログイン</a></li>
+      <li><a href="#">管理ユーザ簡単ログイン</a></li>
+      <% end %>
+      </ul>
+      </div>
+    </nav>
+  </div>
 </header>
