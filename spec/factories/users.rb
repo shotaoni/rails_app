@@ -13,7 +13,13 @@
 FactoryBot.define do
   factory :user do
     name { "factory" }
-    sequence(:email) { |n| "factory#{n}@example.com" }
+    email {"factory@example.com" }
     password { "password" }
+  end
+
+  factory :other_user, class: User do
+    name { "sampleuser" }
+    email { "sample@example.fom" }
+    password { "foobar" }
   end
 end
