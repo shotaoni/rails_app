@@ -24,7 +24,7 @@ module App
       view_specs: false,
       controller_specs: false,
       helper_specs: false,
-      request_specs: false,
+      
       routing_specs: false
     end
 
