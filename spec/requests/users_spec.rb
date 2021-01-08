@@ -11,4 +11,12 @@ RSpec.describe "Users", type: :request do
       expect(request.fullpath).to eq '/login'
     end
   end
+
+  describe "GET /users" do
+    it "does not go to users because of having not log in" do
+      get users_path
+      follow_redirect!
+      expect(request.fullpath).to eq '/login'
+    end
+  end
 end

@@ -18,7 +18,7 @@ class User < ApplicationRecord
     validates :email, presence: true, uniqueness: true, length: { maximum: 255 },
     format: { with: VALID_EMAIL_REGEX }
     has_secure_password
-    validates :password, presence: true, length: { minimum: 6 }
+    validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
     class << self
         # ランダムな文字列でトークンを作成
