@@ -20,7 +20,7 @@ require 'rspec/rails'
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-# Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require f }
+Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require f }
 
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
@@ -39,6 +39,36 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 
+  # Delete screenshots before starting new tests
+  config.before(:all) do
+    FileUtils.rm_rf(Rails.root.join('tmp', 'screenshots'), secure: true)
+  end
+
+  config.include FactoryBot::Syntax::Methods
+
+  # DatabaseCleanerの設定
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :truncation
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+
+  config.before(:all) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:all) do
+    DatabaseCleaner.clean
+  end
+
+  config.include ApplicationHelpers
+  
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
 
@@ -61,15 +91,5 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
-  config.before(:each) do |example|
-    if example.metadata[:type] == :system
-      driven_by(:selenium, using: :headless_chrome, screen_size: [1400, 800]) do |options|
-        options.add_argument('--lang=ja-jp')
-        options.add_argument('--no-sandbox')
-        options.add_argument('disable-dev-shm-usage')
-      end
-    else
-  #    driven_by :rack_test
-    end
-  end
+  
 end

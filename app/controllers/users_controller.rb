@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :redirect_to_profile_if_logged_in, only: [:new, :create]
+  #before_action :redirect_to_profile_if_logged_in, only: [:new, :create]
 
   def show
     @user = User.find(params[:id])
