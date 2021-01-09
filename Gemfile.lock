@@ -65,6 +65,7 @@ GEM
     annotate (3.1.1)
       activerecord (>= 3.2, < 7.0)
       rake (>= 10.4, < 14.0)
+    ast (2.4.1)
     autoprefixer-rails (10.1.0.0)
       execjs
     bcrypt (3.1.16)
@@ -113,6 +114,21 @@ GEM
       concurrent-ruby (~> 1.0)
     jbuilder (2.10.1)
       activesupport (>= 5.0.0)
+    kaminari (1.2.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.2.1)
+      kaminari-activerecord (= 1.2.1)
+      kaminari-core (= 1.2.1)
+    kaminari-actionview (1.2.1)
+      actionview
+      kaminari-core (= 1.2.1)
+    kaminari-activerecord (1.2.1)
+      activerecord
+      kaminari-core (= 1.2.1)
+    kaminari-bootstrap (3.0.1)
+      kaminari (>= 0.13.0)
+      rails
+    kaminari-core (1.2.1)
     listen (3.4.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -132,6 +148,9 @@ GEM
     nio4r (2.5.4)
     nokogiri (1.11.1-x86_64-linux)
       racc (~> 1.4)
+    parallel (1.20.1)
+    parser (3.0.0.0)
+      ast (~> 2.4.1)
     public_suffix (4.0.6)
     puma (5.1.1)
       nio4r (~> 2.0)
@@ -172,11 +191,13 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (~> 1.0)
+    rainbow (3.0.0)
     rake (13.0.3)
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (1.8.2)
+    rexml (3.2.4)
     rspec-core (3.10.1)
       rspec-support (~> 3.10.0)
     rspec-expectations (3.10.1)
@@ -194,6 +215,18 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.10.1)
+    rubocop (1.8.0)
+      parallel (~> 1.10)
+      parser (>= 3.0.0.0)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 1.8, < 3.0)
+      rexml
+      rubocop-ast (>= 1.2.0, < 2.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 1.4.0, < 3.0)
+    rubocop-ast (1.4.0)
+      parser (>= 2.7.1.5)
+    ruby-progressbar (1.11.0)
     rubyzip (2.3.0)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
@@ -224,6 +257,7 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
+    unicode-display_width (2.0.0)
     web-console (4.1.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -261,6 +295,8 @@ DEPENDENCIES
   factory_bot_rails
   faker
   jbuilder (~> 2.7)
+  kaminari
+  kaminari-bootstrap
   listen (~> 3.3)
   mysql2 (~> 0.5)
   puma (~> 5.0)
@@ -268,6 +304,7 @@ DEPENDENCIES
   rails (~> 6.1.0)
   rails-i18n
   rspec-rails
+  rubocop
   sass-rails (>= 6)
   selenium-webdriver
   spring

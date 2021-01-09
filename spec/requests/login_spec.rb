@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "UsersLogins", type: :request do
+RSpec.describe 'UsersLogins', type: :request do
   include SessionsHelper
 
   let(:user) { create(:user) }
@@ -8,8 +10,8 @@ RSpec.describe "UsersLogins", type: :request do
   def post_invalid_information
     post login_path, params: {
       session: {
-        email: "",
-        password: ""
+        email: '',
+        password: ''
       }
     }
   end
@@ -24,9 +26,9 @@ RSpec.describe "UsersLogins", type: :request do
     }
   end
 
-  describe "GET /login" do
-    context "invalid form information" do
-      it "fails having a danger flash message" do
+  describe 'GET /login' do
+    context 'invalid form information' do
+      it 'fails having a danger flash message' do
         get login_path
         post_invalid_information
         expect(flash[:danger]).to be_truthy
@@ -34,8 +36,8 @@ RSpec.describe "UsersLogins", type: :request do
       end
     end
 
-    context "valid form information" do
-      it "succeeds having no danger flash message" do
+    context 'valid form information' do
+      it 'succeeds having no danger flash message' do
         get login_path
         post_valid_information
         expect(flash[:danger]).to be_falsey
@@ -44,7 +46,7 @@ RSpec.describe "UsersLogins", type: :request do
         expect(request.fullpath).to eq '/users/1'
       end
 
-      it "succeeds logout" do
+      it 'succeeds logout' do
         get login_path
         post_valid_information
         expect(logged_in?).to be_truthy
@@ -56,7 +58,7 @@ RSpec.describe "UsersLogins", type: :request do
         expect(request.fullpath).to eq '/'
       end
 
-      it "does not log out twice" do
+      it 'does not log out twice' do
         get login_path
         post_valid_information
         expect(logged_in?).to be_truthy
@@ -71,21 +73,21 @@ RSpec.describe "UsersLogins", type: :request do
         expect(request.fullpath).to eq '/'
       end
 
-      it "succeeds remember_token because of check remember_me" do
+      it 'succeeds remember_token because of check remember_me' do
         get login_path
         post_valid_information(1)
         expect(logged_in?).to be_truthy
         expect(cookies[:remember_token]).not_to be_empty
       end
 
-      it "has no remember_token because of check remember_me" do
+      it 'has no remember_token because of check remember_me' do
         get login_path
         post_valid_information(0)
         expect(logged_in?).to be_truthy
         expect(cookies[:remember_token]).to be_nil
       end
 
-      it "has no remember_token when users logged out and logged in" do
+      it 'has no remember_token when users logged out and logged in' do
         get login_path
         post_valid_information(1)
         expect(logged_in?).to be_truthy

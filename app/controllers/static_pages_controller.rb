@@ -1,9 +1,9 @@
+# frozen_string_literal: true
+
 class StaticPagesController < ApplicationController
-  #before_action :redirect_to_profile_if_logged_in
+  # before_action :redirect_to_profile_if_logged_in
 
-  def home
-  end
+  def home; end
 
-  def about
-  end
+  def about; end
 end
