@@ -18,7 +18,7 @@ FactoryBot.define do
     name { 'factory' }
     email { 'factory@example.com' }
     password { 'password' }
-    admin: true
+    admin { true }
   end
 
   factory :other_user, class: User do

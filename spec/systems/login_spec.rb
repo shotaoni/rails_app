@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Logins', type: :system do
-    include SessionsHelper
+  include SessionsHelper
 
   let(:user) { create(:user) }
 

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 User.create(
-  [{ name: 'shotaonizuka', email: 'shota.oni@gmail.com', password: 'hogehoge' , admin: true}]
+  [{ name: 'shotaonizuka', email: 'shota.oni@gmail.com', password: 'hogehoge', admin: true }]
 )
 
 99.times do |n|
