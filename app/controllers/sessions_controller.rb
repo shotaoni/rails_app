@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class SessionsController < ApplicationController
-  # before_action :redirect_to_profile_if_logged_in, only: [:new, :create]
 
   def new
     @user = User.new
