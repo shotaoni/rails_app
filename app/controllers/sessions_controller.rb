@@ -1,20 +1,20 @@
-class SessionsController < ApplicationController
-  #before_action :redirect_to_profile_if_logged_in, only: [:new, :create]
+# frozen_string_literal: true
 
+class SessionsController < ApplicationController
   def new
     @user = User.new
   end
 
   def create
     user = User.find_by(email: params[:session][:email].downcase)
-    if user && user.authenticate(params[:session][:password])
-     flash[:success] = "ログインしました。"
-     log_in user
-     params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-     redirect_back_or user
+    if user&.authenticate(params[:session][:password])
+      flash[:success] = 'ログインしました。'
+      log_in user
+      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
+      redirect_back_or user
     else
-     flash.now[:danger] = 'メールアドレスかパスワードが正しくありません。'
-     render :new
+      flash.now[:danger] = 'メールアドレスかパスワードが正しくありません。'
+      render :new
     end
   end
 
