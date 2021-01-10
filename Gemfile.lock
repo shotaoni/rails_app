@@ -39,6 +39,8 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
+    active_storage_validations (0.9.1)
+      rails (>= 5.2.0)
     activejob (6.1.0)
       activesupport (= 6.1.0)
       globalid (>= 0.3.6)
@@ -226,6 +228,9 @@ GEM
       unicode-display_width (>= 1.4.0, < 3.0)
     rubocop-ast (1.4.0)
       parser (>= 2.7.1.5)
+    rubocop-faker (1.1.0)
+      faker (>= 2.12.0)
+      rubocop (>= 0.82.0)
     ruby-progressbar (1.11.0)
     rubyzip (2.3.0)
     sass-rails (6.0.0)
@@ -283,6 +288,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  active_storage_validations
   annotate
   bcrypt (= 3.1.16)
   better_errors
@@ -305,6 +311,7 @@ DEPENDENCIES
   rails-i18n
   rspec-rails
   rubocop
+  rubocop-faker
   sass-rails (>= 6)
   selenium-webdriver
   spring

@@ -1,5 +1,5 @@
 <% provide(:title, @user.name) %>
-<div class="show-container">
+<div class="container show-container">
   <div class="row">
     <div class="col bg-primary">
       form
@@ -9,9 +9,8 @@
     </div>
   </div>
   <div class="row">
-    <div class="col bg-warning">
-      log
+    <div class="col">
+      <%= render 'layouts/log' %>
     </div>
   </div>
-  
 </div>
