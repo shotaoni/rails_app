@@ -24,6 +24,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
+gem 'active_storage_validations'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -40,6 +41,7 @@ group :development, :test do
   gem 'annotate'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'faker'
+  gem 'rubocop-faker'
   gem 'rspec-rails'
 end
 

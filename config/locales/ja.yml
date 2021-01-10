@@ -6,6 +6,7 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+          
   date:
     abbr_day_names:
     - 日
@@ -144,13 +145,7 @@ ja:
       create: 登録する
       submit: 保存する
       update: 更新する
-  views:
-    pagination:
-      first: "&laquo; 最初"
-      last: "最後 &raquo;"
-      previous: "&lsaquo; 前"
-      next: "次 &rsaquo;"
-      truncate: "..."
+
   number:
     currency:
       format:

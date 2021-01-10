@@ -1,0 +1,1 @@
+[{"severity":"convention","location":{"begin_pos":434,"end_pos":435},"message":"Faker/DeprecatedArguments: Passing `6` with the 1st argument of `Faker::Lorem.sentence` is deprecated. Use keyword argument like `Faker::Lorem.sentence(word_count: 6)` instead.","cop_name":"Faker/DeprecatedArguments","status":"uncorrected"}]

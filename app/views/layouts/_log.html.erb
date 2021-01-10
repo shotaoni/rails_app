@@ -1,0 +1,29 @@
+<h1 class="log-title col-2">Logs</h1>
+<% if @user.microposts.any? %>
+  <div class="container">
+  <div class="row">
+    <ol class="microposts">
+    <% @microposts.each do |micropost| %>
+        <li id ="micropost-<%= micropost.id %>">
+          <span class="row log-list">
+              <span class="log-timestamp"><%= time_ago_in_words(micropost.created_at) %>前</span>
+            </span>
+            <span class="col-md-10 col-log-contents">
+              <div class="log-edit">
+                <div class="row">
+                  <span class="col-7 log-timestamp log-timestamp-inline"><%= time_ago_in_words(micropost.created_at) %>前</span>
+                </div>
+              </div>
+              <span class="log-content"><%= micropost.content %></span>
+              <span class="log-image"><%= micropost.image %></span>
+            </span>
+          </span>
+        </li>
+    <% end %>
+    </ol>
+    </div>
+  </div>
+  <%= paginate @microposts, window: 10, outer_window: 1 %>
+<% else %>
+  <span>まだ投稿がありません</span>
+<% end %>
