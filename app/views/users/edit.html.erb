@@ -5,6 +5,7 @@
     <h1 class="form-title form-title-edit">プロフィール編集</h1>
   </div>
   <%= form_with(model: @user, url: user_path(@user), local: true) do |form| %>
+    <%= render 'shared/error_messages', object: form.object %>
   <div class="card-deck">
     <div class="col-md-6">
       <section class="card">

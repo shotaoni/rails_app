@@ -13,13 +13,10 @@ RSpec.describe 'UsersSignups', type: :system do
     expect(page).to have_selector '#error_explanation'
   end
 
-  it 'is valid because it fulfils condition of input' do
-    visit signup_path
-    fill_in '名前', with: 'Example User'
-    fill_in 'メールアドレス', with: 'user@example.com'
-    fill_in 'パスワード', with: 'password'
-    click_on '新規ユーザ作成'
-    expect(current_path).to eq user_path(1)
-    expect(page).not_to have_selector '#error_explanation'
-  end
+  #it "is valid because it fulfils form information" do
+  #  visit signup_path
+  #  submit_with_valid_information
+  #  expect(current_path).to eq root_path
+  #  expect(page).to have_selector '.alert-info'
+  #end
 end

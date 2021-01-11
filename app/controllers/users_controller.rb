@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       UserMailer.account_activation(@user).deliver_now
-      flash[:info] = "認証用メールを送信しました。登録時のメールアドレスから認証を済ませてください"
+      flash[:info] = '認証用メールを送信しました。登録時のメールアドレスから認証を済ませてください'
       redirect_to root_url
     else
       render 'new'
@@ -54,14 +54,6 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :password)
-  end
-
-  def logged_in_user
-    unless logged_in?
-      store_location
-      flash[:warning] = 'ログインしてください'
-      redirect_to login_url
-    end
   end
 
   def correct_user
