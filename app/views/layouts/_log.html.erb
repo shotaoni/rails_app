@@ -4,27 +4,28 @@
   
     <ol class="microposts">
     <% @microposts.each do |micropost| %>
-        <li id ="micropost-<%= micropost.id %>">
-          <span class="row log-list">
-              <span class="log-timestamp"><%= time_ago_in_words(micropost.created_at) %>前</span>
-            </span>
-            <span class="col-md-10 col-log-contents">
-              <div class="log-edit">
-                <div class="row">
-                  <span class="col-7 log-timestamp log-timestamp-inline"><%= time_ago_in_words(micropost.created_at) %>前</span>
-                </div>
-              </div>
-              <span class="log-content"><%= micropost.content %></span>
-              <span class="log-image">
-              <% if micropost.image.attached? %>
-                <div class="log-picture">
-                  <%= image_tag micropost.resize_picture %>
-                </div>
-              <% end %>
-              </span>
-            </span>
+      <li id ="micropost-<%= micropost.id %>">
+        <span class="row log-list">
+          <span class="col-2 log-timestamp d-none d-md-inline-block log-timestamp-block">
+            <span class="log-timestamp"><%= time_ago_in_words(micropost.created_at) %>前</span>
           </span>
-        </li>
+          <span class="col-md-10 col-log-memos">
+            <div class="log-time-and-edit">
+              <div class="row">
+                
+                <span class="col-7 log-timestamp log-timestamp-inline"><%= time_ago_in_words(micropost.created_at) %>前</span>
+                <span class="log-edit col-2"><%= link_to image_tag('sample_muscle.jpg', class: "log-edit-image"), edit_micropost_path(micropost) %></span>
+              </div>
+            </div>
+            <% if micropost.content.present? %>
+              <div class="log-content"><%= micropost.content %></div>
+            <% end %>
+            <% if micropost.image.attached? %>
+              <div class="log-image"><%= image_tag micropost.resize_image %></div>
+            <% end %>
+          </span>
+        </span>
+      </li>
     <% end %>
     </ol>
   </div>

@@ -3,14 +3,16 @@ class MicropostsController < ApplicationController
   before_action :correct_user, only: :destroy
 
   def create
-    @micropost = current_user.microposts.build(micropost_params)
+    @micropost = current_user.microposts.build(micropost_params) 
     @micropost.image.attach(params[:micropost][:image])
     if @micropost.save
-      redirect_to current_user
+      redirect_to root_url
     else
-      render 'users/show'
+      @feed_items = current_user.feed.page(params[:page]).per(10)
+      render 'static_pages/home'
     end
   end
+
 
   def edit
     @micropost = current_user.microposts.find_by(id: params[:id]) || nil
@@ -34,7 +36,7 @@ class MicropostsController < ApplicationController
   def destroy
     @micropost.destroy
     flash[:success] = 'ログが削除されました'
-    redirect_to current_user
+    redirect_to request.referrer || root_url
   end
 
   private
