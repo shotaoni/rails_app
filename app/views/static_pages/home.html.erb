@@ -15,6 +15,20 @@
   初めての方はaboutページにて、詳しい説明をご覧ください。</p>
   </div>
 
+  <% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="micropost_form">
+        <%= render 'shared/micropost_form' %>
+      </section>
+    </aside>
+    <div class="col-md-8">
+      <h3>Micropost Feed</h3>
+      <%= render 'shared/feed' %>
+    </div>
+  </div>
+  <% end %>
+
   <div class="usecase-container">
   <h2>ご利用例</h2>
   <p>たくましい男性とデートをしたい。

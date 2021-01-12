@@ -19,15 +19,24 @@
 #
 FactoryBot.define do
   factory :user do
-    name { 'factory' }
-    email { 'factory@example.com' }
+    name { 'Michael Example' }
+    email { 'michael@example.com' }
     password { 'password' }
     admin { true }
+    activated { true }
   end
 
   factory :other_user, class: User do
-    name { 'sampleuser' }
-    email { 'sample@example.fom' }
-    password { 'foobar' }
+    name { "Sterling Archer" }
+    email { "duchess@example.gov" }
+    password { "foobar" }
+    activated { true }
+  end
+
+  factory :no_activation_user, class: User do
+    name { "No Activation" }
+    email { "no@activation.co.jp" }
+    password { "foobar" }
+    activated { false }
   end
 end

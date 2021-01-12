@@ -1,0 +1,1 @@
+[{"severity":"error","location":{"begin_pos":1275,"end_pos":1278},"message":"Lint/Syntax: unexpected token kEND\n(Using Ruby 2.7 parser; configure using `TargetRubyVersion` parameter, under `AllCops`)","cop_name":"Lint/Syntax","status":"unsupported"}]

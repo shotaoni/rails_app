@@ -11,7 +11,7 @@ User.create(
   User.create!(name: name, email: email, password: password, activated: true)
 end
 
-users = User.order(:created_at).take(3)
+users = User.order(:created_at).take(6)
 50.times do
   content = Faker::Lorem.sentence(word_count: 6)
   users.each { |user| user.microposts.create!(content: content) }
